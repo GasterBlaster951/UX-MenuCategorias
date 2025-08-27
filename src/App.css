@@ -118,6 +118,7 @@
   display: flex;
   list-style: none;
   gap: 10px;
+  position: relative;
 }
 
 .menu li {
@@ -136,9 +137,58 @@
 }
 
 .neon-link:hover {
-  color: #4fd1c5; /* Ciano suave */
+  color: #4fd1c5;
   background: rgba(79, 209, 197, 0.1);
   box-shadow: 0 0 8px rgba(79, 209, 197, 0.4);
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  content: " ";
+  font-size: 0.8em;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(41, 11, 88, 0.95);
+  border: 1px solid #9d4edd;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  list-style: none;
+  padding: 10px 0;
+  min-width: 180px;
+  z-index: 1000;
+  animation: dropdownFade 0.3s ease;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  color: #c8b6ff;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  color: #4fd1c5;
+  background: rgba(79, 209, 197, 0.1);
 }
 
 /* Conteúdo Principal */
@@ -147,6 +197,7 @@
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
+  min-height: calc(100vh - 160px);
 }
 
 .neon-title {
@@ -217,8 +268,8 @@
 }
 
 .synth-button:hover {
-  background: rgba(79, 209, 197, 0.15); /* Ciano suave com transparência */
-  color: #4fd1c5; /* Ciano mais suave */
+  background: rgba(79, 209, 197, 0.15);
+  color: #4fd1c5;
   border-color: #4fd1c5;
   box-shadow: 0 0 10px rgba(79, 209, 197, 0.4);
 }
@@ -229,10 +280,9 @@
   border-top: 1px solid #5271ff;
   padding: 20px;
   text-align: center;
-  margin-top: 60px;
+  width: 100%;
   position: absolute;
   bottom: 0;
-  width: 100%;
 }
 
 /* Responsividade */
@@ -248,6 +298,12 @@
     justify-content: center;
   }
   
+  .dropdown-menu {
+    position: static;
+    margin-top: 5px;
+    width: 100%;
+  }
+  
   .neon-title {
     font-size: 2rem;
   }
@@ -260,9 +316,5 @@
   .content-card {
     width: 100%;
     max-width: 400px;
-  }
-  
-  .synth-footer {
-    position: relative;
   }
 }
