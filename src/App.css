@@ -1,0 +1,268 @@
+/* App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#root{
+  width: 100%;
+}
+
+.App {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  color: white;
+}
+
+/* Fundo Synthwave */
+.synthwave-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(to bottom, #0f0235, #2a0b58, #511c89);
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: twinkle 5s infinite;
+}
+
+.sun {
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #ff9900;
+  box-shadow: 0 0 50px #ff9900, 0 0 100px #ff9900;
+}
+
+.mountains {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: 
+    linear-gradient(70deg, transparent 30%, #ff00c8 30%, #ff00c8 35%, transparent 35%),
+    linear-gradient(290deg, transparent 30%, #ff00c8 30%, #ff00c8 35%, transparent 35%),
+    linear-gradient(65deg, transparent 40%, #9d4edd 40%, #9d4edd 45%, transparent 45%),
+    linear-gradient(295deg, transparent 40%, #9d4edd 40%, #9d4edd 45%, transparent 45%);
+  background-size: 100% 100%;
+}
+
+.grid-lines {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-image: 
+    linear-gradient(to right, rgba(255, 0, 200, 0.1) 1px, transparent 1px),
+    linear-gradient(to top, rgba(255, 0, 200, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* Navegação - Menu Horizontal */
+.synth-nav {
+  padding: 0;
+  background: rgba(10, 5, 35, 0.8);
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid #ff00c8;
+  box-shadow: 0 0 15px rgba(255, 0, 200, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff00c8;
+  text-shadow: 0 0 10px #ff00c8;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+}
+
+.menu li {
+  position: relative;
+}
+
+.neon-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 15px 20px;
+  display: block;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.neon-link:hover {
+  color: #4fd1c5; /* Ciano suave */
+  background: rgba(79, 209, 197, 0.1);
+  box-shadow: 0 0 8px rgba(79, 209, 197, 0.4);
+}
+
+/* Conteúdo Principal */
+.synth-main {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.neon-title {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #5271ff, 0 0 20px #5271ff;
+  animation: pulsate 2s infinite alternate;
+}
+
+.neon-text {
+  font-size: 1.2rem;
+  color: #c8b6ff;
+  margin-bottom: 60px;
+  text-shadow: 0 0 5px #c8b6ff;
+}
+
+@keyframes pulsate {
+  0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #5271ff, 0 0 20px #5271ff; }
+  100% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #5271ff, 0 0 40px #5271ff; }
+}
+
+/* Seção de Conteúdo */
+.content-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.content-card {
+  background: rgba(41, 11, 88, 0.6);
+  border: 1px solid #9d4edd;
+  border-radius: 10px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(157, 78, 221, 0.3);
+  width: 300px;
+  text-align: left;
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(157, 78, 221, 0.7);
+}
+
+.content-card h2 {
+  color: #ff00c8;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.content-card p {
+  color: #c8b6ff;
+  margin-bottom: 20px;
+}
+
+.synth-button {
+  background: transparent;
+  color: #00eeff;
+  border: 1px solid #00eeff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.synth-button:hover {
+  background: rgba(79, 209, 197, 0.15); /* Ciano suave com transparência */
+  color: #4fd1c5; /* Ciano mais suave */
+  border-color: #4fd1c5;
+  box-shadow: 0 0 10px rgba(79, 209, 197, 0.4);
+}
+
+/* Rodapé */
+.synth-footer {
+  background: rgba(10, 5, 35, 0.8);
+  border-top: 1px solid #5271ff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 60px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .menu {
+    margin-top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .neon-title {
+    font-size: 2rem;
+  }
+  
+  .content-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content-card {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .synth-footer {
+    position: relative;
+  }
+}
